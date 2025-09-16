@@ -1,0 +1,20 @@
+exports.getOrder=async(req,res,next)=>
+{
+    try{
+    const order=await req.order.find({});
+    res.json(
+        {
+            success:true,
+            order
+        }
+    )
+}catch(err)
+{
+    res.status(500).json(
+        {
+            success:false,
+            error:err.message
+        }
+    )
+}
+}
